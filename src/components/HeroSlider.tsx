@@ -28,7 +28,8 @@ export default function HeroSlider({ currentIndex, setCurrentIndex, isLoaded }: 
         <div className="container mx-auto px-8 md:px-16">
           <div className={cn('flex max-w-2xl flex-col gap-8 transform transition-all duration-1000 ease-out', isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0')}>
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm">
-              <span className="text-sm font-medium text-white/80">🐾 Школьный исследовательский проект</span>
+              <span className="text-sm font-medium text-white/80">🐾 Школьный исследовательский проект
+     Выполнил Гаценко Руслан </span>
             </div>
             <h1 className="text-4xl font-bold leading-tight text-white md:text-6xl lg:text-7xl">
               Порода собаки и её <span className="text-amber-400">обучаемость</span>
