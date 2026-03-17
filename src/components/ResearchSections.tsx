@@ -218,6 +218,53 @@ export default function ResearchSections() {
             <p className="mx-auto mt-4 max-w-2xl text-white/50">Обзор литературных данных</p>
           </div>
 
+          <div className="mb-12 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-8 md:p-10">
+            <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-start">
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-amber-400/30 bg-amber-400/10 text-4xl">
+                👨‍🔬
+              </div>
+              <div>
+                <p className="mb-1 text-sm font-medium uppercase tracking-widest text-amber-400">Ключевой исследователь</p>
+                <h3 className="mb-1 text-2xl font-bold text-white">Стэнли Корен</h3>
+                <p className="text-white/50">Stanley Coren, род. 1942 — канадско-американский нейропсихолог и исследователь поведения собак</p>
+              </div>
+            </div>
+
+            <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+                <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-amber-400/70">Образование и карьера</p>
+                <p className="text-sm leading-relaxed text-white/70">Профессор психологии Университета Британской Колумбии (Ванкувер, Канада). Степень бакалавра — Университет Пенсильвании, PhD — Стэнфордский университет. Специализировался на нейропсихологии и психофизике. Лауреат многочисленных научных наград, в том числе премии Дональда Хебба от Канадского психологического общества.</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+                <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-amber-400/70">Путь к изучению собак</p>
+                <p className="text-sm leading-relaxed text-white/70">В молодости Корен изучал восприятие и когнитивные процессы у людей. К собакам обратился через призму нейропсихологии — его интересовало, как животные обрабатывают информацию, обучаются и взаимодействуют с людьми. Первые статьи на эту тему вышли в начале 1980-х и вызвали неожиданно широкий интерес как в научном, так и в массовом сообществе.</p>
+              </div>
+            </div>
+
+            <div className="mb-6 rounded-xl border border-white/10 bg-white/5 p-5">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-amber-400/70">Главные труды</p>
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+                {[
+                  { year: '1994', title: '«Интеллект собак»', desc: 'Классификация 138 пород по обучаемости. Бестселлер, переведён на 26 языков. Основа всех современных рейтингов.' },
+                  { year: '1998', title: '«Почему мы любим собак»', desc: 'Исследование психологической связи между человеком и собакой. Анализ эволюционных и культурных аспектов.' },
+                  { year: '2004', title: '«Как говорят собаки»', desc: 'Детальный разбор языка тела, мимики и вокализации собак. Практическое руководство по пониманию питомца.' },
+                ].map((book) => (
+                  <div key={book.year} className="rounded-lg border border-amber-400/10 bg-amber-400/5 p-4">
+                    <p className="mb-1 text-xs font-bold text-amber-400">{book.year}</p>
+                    <p className="mb-1 font-semibold text-white">{book.title}</p>
+                    <p className="text-xs leading-relaxed text-white/55">{book.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-amber-400/70">Влияние и критика</p>
+              <p className="mb-3 text-sm leading-relaxed text-white/70">Работы Корена стали отправной точкой для большинства современных исследований в области когнитивных способностей собак. Его рейтинг цитируется в сотнях научных статей и используется кинологическими организациями по всему миру. Корен также регулярно выступал в СМИ как эксперт и вёл научно-популярную колонку в Psychology Today более 15 лет.</p>
+              <p className="text-sm leading-relaxed text-white/70">Вместе с тем ряд исследователей указывает на ограниченность его методологии: рейтинг основан на оценке рабочего интеллекта в контексте послушания, тогда как другие формы интеллекта — адаптивный, социальный, эмоциональный — остаются за рамками. Современные учёные, такие как Брайан Хейр и Адам Миклоши, развивают более многомерные модели собачьего интеллекта, опираясь в том числе на труды Корена.</p>
+            </div>
+          </div>
+
           <div className="mb-12 rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
             <h3 className="mb-5 text-2xl font-semibold text-white">Теоретические основы</h3>
             <p className="mb-4 leading-relaxed text-white/70">
