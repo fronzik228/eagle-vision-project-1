@@ -139,10 +139,26 @@ function BreedRating() {
           })}
         </div>
 
-        <div className="mt-10 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-8 text-center">
-          <p className="text-lg text-white/80">
-            💡 <strong className="text-amber-400">Вывод:</strong> Порода действительно влияет на обучаемость, но не определяет её полностью. Воспитание, терпение и правильный подход важны для любой собаки.
-          </p>
+        <div className="mt-10 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-8 md:p-10">
+          <div className="mb-6 flex items-center gap-3">
+            <span className="text-2xl">💡</span>
+            <h3 className="text-xl font-bold text-amber-400">Выводы по рейтингу</h3>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+              <p className="mb-2 font-semibold text-white">Порода — стартовая точка</p>
+              <p className="text-sm leading-relaxed text-white/60">Генетика задаёт склонности и мотивацию, но не предрешает результат. Бордер-колли с плохим воспитанием может уступить правильно обученному мопсу.</p>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+              <p className="mb-2 font-semibold text-white">Метод важнее породы</p>
+              <p className="text-sm leading-relaxed text-white/60">«Трудные» породы — хаски, чау-чау, афганская борзая — требуют не больше усилий, а другого подхода. Они реагируют на мотивацию, а не на принуждение.</p>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+              <p className="mb-2 font-semibold text-white">Разные виды интеллекта</p>
+              <p className="text-sm leading-relaxed text-white/60">Низкий рейтинг послушания не значит «глупая». Хаски и борзые обладают высоким адаптивным интеллектом — они решают задачи самостоятельно, без команд.</p>
+            </div>
+          </div>
+          <p className="mt-6 text-center text-sm text-white/40">Воспитание, последовательность и терпение — универсальные факторы для любой породы</p>
         </div>
       </div>
     </section>
