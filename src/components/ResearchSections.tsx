@@ -1,17 +1,153 @@
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
 const breeds = [
-  { name: 'Бордер-колли', rank: 1, trait: 'Гений среди собак', desc: 'Усваивает новую команду за 5 повторений, выполняет с первого раза в 95% случаев' },
-  { name: 'Пудель', rank: 2, trait: 'Умный и легко обучаемый', desc: 'Исключительная память и желание угождать хозяину делают его идеальным учеником' },
-  { name: 'Немецкая овчарка', rank: 3, trait: 'Мастер дрессировки', desc: 'Универсальная служебная порода — полиция, армия, поисково-спасательные операции' },
-  { name: 'Золотистый ретривер', rank: 4, trait: 'Отличник по послушанию', desc: 'Мягкий характер и высокая мотивация к одобрению человека обеспечивают лёгкое обучение' },
-  { name: 'Доберман', rank: 5, trait: 'Быстро схватывает команды', desc: 'Энергичный и сосредоточенный — один из лучших в сложных служебных задачах' },
-  { name: 'Лабрадор', rank: 7, trait: 'Дружелюбный и послушный', desc: 'Самая популярная порода-поводырь благодаря спокойному нраву и отличной обучаемости' },
-  { name: 'Сибирский хаски', rank: 45, trait: 'Независимый и упрямый', desc: 'Умная порода, но с сильным охотничьим инстинктом — требует опытного дрессировщика' },
-  { name: 'Чау-чау', rank: 76, trait: 'Независимый характер', desc: 'Кошачья самостоятельность — выполняет команды только когда сам считает нужным' },
-  { name: 'Мопс', rank: 57, trait: 'Живёт по своим правилам', desc: 'Обучается охотнее при наличии вкусного угощения, иначе демонстрирует полное безразличие' },
-  { name: 'Афганская борзая', rank: 79, trait: 'Самая "неудобная" в обучении', desc: 'Древняя охотничья порода с развитым инстинктом независимости — настоящий вызов для дрессировщика' },
+  {
+    name: 'Бордер-колли', rank: 1, trait: 'Гений среди собак', icon: '🥇',
+    desc: 'Усваивает новую команду за 5 повторений, выполняет с первого раза в 95% случаев',
+    details: 'Считается абсолютным чемпионом по интеллекту среди всех пород. Изначально выведена в Шотландии для пастьбы овец — порода способна управлять стадом исключительно взглядом. Требует ежедневной умственной и физической нагрузки, иначе начинает «изобретать» занятия сама — не всегда на радость хозяину.',
+    tags: ['Пастушья', 'Активная', 'Для опытных'],
+    trainability: 99,
+  },
+  {
+    name: 'Пудель', rank: 2, trait: 'Умный и легко обучаемый', icon: '✨',
+    desc: 'Исключительная память и желание угождать хозяину делают его идеальным учеником',
+    details: 'Несмотря на декоративный образ, пудель — рабочая порода, исторически использовавшаяся для охоты на водоплавающую дичь. Гипоаллергенен, практически не линяет. Существует в трёх размерах: стандартный, миниатюрный и той. Все три одинаково умны и легко обучаемы.',
+    tags: ['Гипоаллергенен', 'Городская', 'Для новичков'],
+    trainability: 97,
+  },
+  {
+    name: 'Немецкая овчарка', rank: 3, trait: 'Мастер дрессировки', icon: '🛡️',
+    desc: 'Универсальная служебная порода — полиция, армия, поисково-спасательные операции',
+    details: 'Самая распространённая служебная порода в мире. Используется в полиции, армии, таможне, поисково-спасательных службах и как собака-поводырь. Обладает высокой рабочей мотивацией и быстро устанавливает глубокую связь с хозяином. Требует ранней социализации.',
+    tags: ['Служебная', 'Охранная', 'Для опытных'],
+    trainability: 95,
+  },
+  {
+    name: 'Золотистый ретривер', rank: 4, trait: 'Отличник по послушанию', icon: '🌟',
+    desc: 'Мягкий характер и высокая мотивация к одобрению человека обеспечивают лёгкое обучение',
+    details: 'Эталон семейной породы. Мягкий, терпеливый, никогда не агрессивный. Один из лучших вариантов для первой собаки в семье с детьми. Обожает воду, мячи и людей. Самая популярная порода-терапевт и собака-поводырь в США.',
+    tags: ['Семейная', 'Для детей', 'Для новичков'],
+    trainability: 93,
+  },
+  {
+    name: 'Доберман', rank: 5, trait: 'Быстро схватывает команды', icon: '⚡',
+    desc: 'Энергичный и сосредоточенный — один из лучших в сложных служебных задачах',
+    details: 'Выведен в Германии в конце XIX века Карлом Доберманном для сопровождения при сборе налогов. Элегантен, атлетичен, невероятно предан хозяину. При правильном воспитании — нежный компаньон. Без — может стать неуправляемым. Требует чёткого руководства.',
+    tags: ['Охранная', 'Атлетичная', 'Для опытных'],
+    trainability: 90,
+  },
+  {
+    name: 'Лабрадор', rank: 7, trait: 'Дружелюбный и послушный', icon: '💛',
+    desc: 'Самая популярная порода-поводырь благодаря спокойному нраву и отличной обучаемости',
+    details: 'Три года подряд занимал первое место по популярности в США и Великобритании. Абсолютно лишён агрессии, обожает всех людей без исключения — что делает его плохим сторожем, но великолепным компаньоном. Прекрасно подходит для семей с детьми, пожилых людей и новичков.',
+    tags: ['Семейная', 'Для детей', 'Для новичков'],
+    trainability: 88,
+  },
+  {
+    name: 'Сибирский хаски', rank: 45, trait: 'Независимый и упрямый', icon: '🐺',
+    desc: 'Умная порода, но с сильным охотничьим инстинктом — требует опытного дрессировщика',
+    details: 'Одна из древнейших пород, выведенная народом чукча для ездовой службы в экстремальных условиях. Способен пробежать сотни километров. Умён, но категорически не склонен к слепому подчинению. Часто «дискутирует» с хозяином и принимает самостоятельные решения. Без нагрузки — разрушителен.',
+    tags: ['Ездовая', 'Высокая нагрузка', 'Для опытных'],
+    trainability: 45,
+  },
+  {
+    name: 'Чау-чау', rank: 76, trait: 'Независимый характер', icon: '🦁',
+    desc: 'Кошачья самостоятельность — выполняет команды только когда сам считает нужным',
+    details: 'Одна из древнейших пород в мире — её изображения найдены на китайских артефактах возрастом более 2000 лет. Известна фиолетовым языком — редкая черта. Чрезвычайно независима, глубоко привязывается к одному человеку и сдержанна со всеми остальными. Напоминает кошку в теле медведя.',
+    tags: ['Примитивная', 'Независимая', 'Для опытных'],
+    trainability: 20,
+  },
+  {
+    name: 'Мопс', rank: 57, trait: 'Живёт по своим правилам', icon: '😏',
+    desc: 'Обучается охотнее при наличии вкусного угощения, иначе демонстрирует полное безразличие',
+    details: 'Любимцы китайских императоров и европейской аристократии. Мопс — ходячий источник юмора с философским взглядом на жизнь. Обожает общение, ненавидит одиночество. Брахицефал — имеет проблемы с дыханием при физических нагрузках. Идеален для неторопливой городской жизни.',
+    tags: ['Декоративная', 'Городская', 'Для пожилых'],
+    trainability: 35,
+  },
+  {
+    name: 'Афганская борзая', rank: 79, trait: 'Самая независимая в обучении', icon: '👑',
+    desc: 'Древняя охотничья порода с развитым инстинктом независимости — настоящий вызов для дрессировщика',
+    details: 'Одна из старейших пород в мире, родом из Афганистана и Персии. Использовалась для охоты на леопардов и волков в одиночку — отсюда абсолютная самостоятельность. Красота — поразительная, обучаемость — минимальная по стандартам команд. Однако обладает высоким адаптивным интеллектом.',
+    tags: ['Охотничья', 'Декоративная', 'Для терпеливых'],
+    trainability: 10,
+  },
 ];
+
+function BreedRating() {
+  const [openId, setOpenId] = useState<string | null>(null);
+
+  return (
+    <section id="breeds" className="bg-black px-8 py-24 md:px-16">
+      <div className="container mx-auto max-w-5xl">
+        <div className="mb-16 text-center">
+          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-amber-400">Рейтинг</p>
+          <h2 className="text-3xl font-bold text-white md:text-5xl">Кто умнее всех?</h2>
+          <p className="mt-4 text-white/50">По шкале Стэнли Корена — нажми на карточку, чтобы узнать подробности</p>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          {breeds.map((breed) => {
+            const isOpen = openId === breed.name;
+            return (
+              <div
+                key={breed.name}
+                className={cn(
+                  'overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer',
+                  isOpen ? 'border-amber-400/40 bg-amber-400/5' : 'border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/[0.07]'
+                )}
+                onClick={() => setOpenId(isOpen ? null : breed.name)}
+              >
+                {/* Заголовок карточки */}
+                <div className="flex items-center gap-5 p-5 md:p-6">
+                  <div className={cn('flex h-14 w-14 shrink-0 items-center justify-center rounded-full text-lg font-bold transition-colors', isOpen ? 'bg-amber-400/20 text-amber-400' : 'bg-white/5 text-amber-400/70')}>
+                    #{breed.rank}
+                  </div>
+                  <div className="flex flex-1 items-center gap-3 min-w-0">
+                    <span className="text-2xl">{breed.icon}</span>
+                    <div className="min-w-0">
+                      <h3 className="font-semibold text-white">{breed.name}</h3>
+                      <p className="text-sm text-amber-400/70">{breed.trait}</p>
+                    </div>
+                  </div>
+                  {/* Полоска обучаемости */}
+                  <div className="hidden md:flex flex-col items-end gap-1 shrink-0 w-36">
+                    <span className="text-xs text-white/40">обучаемость</span>
+                    <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+                      <div
+                        className={cn('h-full rounded-full transition-all duration-700', breed.trainability >= 70 ? 'bg-green-400' : breed.trainability >= 40 ? 'bg-amber-400' : 'bg-red-400')}
+                        style={{ width: `${breed.trainability}%` }}
+                      />
+                    </div>
+                  </div>
+                  <span className={cn('ml-2 shrink-0 text-white/30 transition-transform duration-300', isOpen && 'rotate-180')}>▼</span>
+                </div>
+
+                {/* Раскрывающееся содержимое */}
+                {isOpen && (
+                  <div className="border-t border-white/10 px-5 pb-6 pt-5 md:px-6">
+                    <p className="mb-5 leading-relaxed text-white/70">{breed.details}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {breed.tags.map((tag) => (
+                        <span key={tag} className="rounded-full bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-400/80">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-10 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-8 text-center">
+          <p className="text-lg text-white/80">
+            💡 <strong className="text-amber-400">Вывод:</strong> Порода действительно влияет на обучаемость, но не определяет её полностью. Воспитание, терпение и правильный подход важны для любой собаки.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function ResearchSections() {
   return (
@@ -112,32 +248,7 @@ export default function ResearchSections() {
       </section>
 
       {/* ===== РЕЙТИНГ ПОРОД ===== */}
-      <section id="breeds" className="bg-black px-8 py-24 md:px-16">
-        <div className="container mx-auto max-w-5xl">
-          <div className="mb-16 text-center">
-            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-amber-400">Рейтинг</p>
-            <h2 className="text-3xl font-bold text-white md:text-5xl">Кто умнее всех?</h2>
-            <p className="mt-4 text-white/50">По шкале Стэнли Корена — 138 пород от самых обучаемых до самых упрямых</p>
-          </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {breeds.map((breed) => (
-              <div key={breed.name} className="flex items-start gap-6 rounded-2xl border border-white/10 bg-white/5 p-6 transition-all hover:border-amber-400/30">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-amber-400/10 text-2xl font-bold text-amber-400">#{breed.rank}</div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white">{breed.name}</h3>
-                  <p className="text-sm font-medium text-amber-400/80">{breed.trait}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-white/50">{breed.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-12 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-8 text-center">
-            <p className="text-lg text-white/80">
-              💡 <strong className="text-amber-400">Вывод:</strong> Порода действительно влияет на обучаемость, но не определяет её полностью. Воспитание, терпение и правильный подход важны для любой собаки.
-            </p>
-          </div>
-        </div>
-      </section>
+      <BreedRating />
 
       {/* ===== ГЛАВА 2 ===== */}
       <section id="character" className="bg-zinc-950 px-8 py-24 md:px-16">

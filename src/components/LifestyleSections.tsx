@@ -240,22 +240,6 @@ export default function LifestyleSections() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
-            <h3 className="mb-5 text-xl font-semibold text-white">Перспективы дальнейших исследований</h3>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              {[
-                'Влияние конкретных генов (WBSCR17, ASIC1) на социальное поведение и обучаемость собак',
-                'Долгосрочное сравнение результатов позитивных и смешанных методов дрессировки у разных пород',
-                'Роль микробиома кишечника в поведении и обучаемости — новое перспективное направление',
-                'Влияние урбанизации на поведение и обучаемость потомства городских собак',
-              ].map((item, i) => (
-                <div key={i} className="flex gap-3 rounded-xl border border-white/10 bg-white/5 p-4">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-xs font-bold text-amber-400">{i + 1}</span>
-                  <p className="text-sm leading-relaxed text-white/60">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
