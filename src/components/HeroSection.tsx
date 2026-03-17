@@ -3,6 +3,7 @@ import NavBar from '@/components/NavBar';
 import HeroSlider from '@/components/HeroSlider';
 import ResearchSections from '@/components/ResearchSections';
 import LifestyleSections from '@/components/LifestyleSections';
+import BreedQuiz from '@/components/BreedQuiz';
 
 const IMAGES_COUNT = 4;
 
@@ -31,6 +32,7 @@ export default function HeroSection() {
       <HeroSlider currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} isLoaded={isLoaded} />
       <ResearchSections />
       <LifestyleSections />
+      <BreedQuiz />
     </>
   );
 }

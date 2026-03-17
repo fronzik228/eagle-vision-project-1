@@ -6,6 +6,7 @@ const navLinks = [
   { href: '#character', label: 'Глава 2' },
   { href: '#methods', label: 'Глава 3' },
   { href: '#choice', label: 'Глава 4' },
+  { href: '#quiz', label: '🐾 Тест' },
   { href: '#conclusion', label: 'Вывод' },
   { href: '#sources', label: 'Источники' },
 ];
