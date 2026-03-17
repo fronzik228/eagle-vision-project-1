@@ -398,24 +398,6 @@ export default function ResearchSections() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
-            <h3 className="mb-6 text-xl font-semibold text-white">Ключевые выводы по литературе</h3>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              {[
-                'Пастушьи и служебные породы стабильно занимают верхние строчки рейтинга обучаемости во всех независимых исследованиях',
-                'Охотничьи и примитивные породы склонны к независимости — это эволюционное преимущество, а не недостаток',
-                'Генетика определяет потенциал, но не гарантирует результат без правильных условий и методов дрессировки',
-                'Внутри одной породы индивидуальные различия в обучаемости могут быть сопоставимы с межпородными',
-                'Рейтинги обучаемости отражают именно рабочий интеллект — способность следовать командам человека',
-                'Самые «трудные» в дрессировке породы нередко обладают высоким адаптивным интеллектом и самостоятельностью мышления',
-              ].map((point, i) => (
-                <div key={i} className="flex gap-3">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-xs font-bold text-amber-400">{i + 1}</span>
-                  <p className="text-white/70">{point}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -607,6 +589,75 @@ export default function ResearchSections() {
                 <div key={row.label} className="rounded-xl bg-white/5 p-4">
                   <p className="text-sm text-white/50">{row.label}</p>
                   <p className="mt-1 font-medium text-amber-400">→ {row.method}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ОБЩИЙ ВЫВОД ===== */}
+      <section id="conclusion" className="bg-zinc-900 px-8 py-24 md:px-16">
+        <div className="container mx-auto max-w-5xl">
+          <div className="mb-16 text-center">
+            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-amber-400">Заключение</p>
+            <h2 className="text-3xl font-bold text-white md:text-5xl">Общие выводы</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-white/50">По результатам трёх глав исследования</p>
+          </div>
+
+          <div className="mb-10 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-8 md:p-10">
+            <p className="mb-5 text-lg leading-relaxed text-white/85">
+              Проведённый анализ показывает, что обучаемость собаки — это не фиксированное свойство, заданное породой, а динамический результат взаимодействия трёх факторов: генетической предрасположенности, индивидуального темперамента и выбранного метода дрессировки. Ни один из этих факторов не является определяющим в отрыве от двух других.
+            </p>
+            <p className="text-base leading-relaxed text-white/65">
+              Исследования Корена, Хейра и Миклоши, рассмотренные в работе, дополняют друг друга: Корен систематизировал породные различия в рабочем интеллекте, Хейр объяснил их эволюционные корни через механизм «совместного внимания», а Миклоши доказал, что ключевые когнитивные черты собак закреплены генетически и не воспроизводятся у волков даже при одинаковом воспитании.
+            </p>
+          </div>
+
+          <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {[
+              {
+                num: '1',
+                color: 'border-blue-400/30 bg-blue-400/5',
+                numColor: 'text-blue-400',
+                title: 'Порода задаёт потенциал',
+                text: 'Пастушьи и служебные породы генетически настроены на взаимодействие с человеком — это их эволюционное преимущество. Охотничьи и примитивные породы обладают иным, не менее ценным типом интеллекта: самостоятельностью и адаптивностью. Рейтинг обучаемости отражает лишь рабочий интеллект, а не «умность» в широком смысле.',
+              },
+              {
+                num: '2',
+                color: 'border-purple-400/30 bg-purple-400/5',
+                numColor: 'text-purple-400',
+                title: 'Характер определяет подход',
+                text: 'Разброс по обучаемости внутри одной породы сопоставим с межпородными различиями. Темперамент, уровень тревожности, мотивация и ранний опыт социализации влияют на результат не меньше, чем порода. Хозяин, учитывающий характер своей конкретной собаки, добьётся большего, чем тот, кто ориентируется лишь на породные стереотипы.',
+              },
+              {
+                num: '3',
+                color: 'border-green-400/30 bg-green-400/5',
+                numColor: 'text-green-400',
+                title: 'Метод решает всё',
+                text: 'Правильно выбранный метод дрессировки способен раскрыть потенциал любой породы — и нивелировать его при ошибочном подходе. Современная наука однозначно признаёт позитивное подкрепление наиболее эффективным и этичным методом. Принудительные методы дают худшие долгосрочные результаты и наносят вред психике животного.',
+              },
+            ].map((item) => (
+              <div key={item.num} className={`rounded-2xl border p-7 ${item.color}`}>
+                <div className={`mb-4 text-5xl font-black opacity-30 ${item.numColor}`}>{item.num}</div>
+                <h3 className="mb-3 text-lg font-bold text-white">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-white/60">{item.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-8 md:p-10">
+            <h3 className="mb-5 text-xl font-semibold text-white">Практические рекомендации</h3>
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+              {[
+                { n: '1', text: 'При выборе породы ориентируйтесь на образ жизни и опыт, а не только на рейтинг обучаемости — «сложная» порода в руках опытного хозяина даст лучший результат, чем «лёгкая» в руках безответственного.' },
+                { n: '2', text: 'Оценивайте конкретного щенка или взрослую собаку — её темперамент и историю — не менее внимательно, чем породные характеристики.' },
+                { n: '3', text: 'Применяйте позитивное подкрепление как основу дрессировки. При необходимости комбинируйте методы, адаптируя их под мотивацию и характер питомца.' },
+                { n: '4', text: 'Не отказывайтесь от собаки из-за трудностей в обучении — в большинстве случаев проблема решается сменой метода или обращением к профессиональному кинологу.' },
+              ].map((item) => (
+                <div key={item.n} className="flex gap-4 rounded-xl border border-white/10 bg-white/5 p-5">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-400/20 text-sm font-bold text-amber-400">{item.n}</span>
+                  <p className="text-sm leading-relaxed text-white/65">{item.text}</p>
                 </div>
               ))}
             </div>
