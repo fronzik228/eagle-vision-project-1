@@ -281,6 +281,68 @@ export default function ResearchSections() {
             </p>
           </div>
 
+          <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+
+            {/* Брайан Хейр */}
+            <div className="rounded-2xl border border-blue-400/20 bg-blue-400/5 p-8">
+              <div className="mb-6 flex items-start gap-4">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-blue-400/30 bg-blue-400/10 text-3xl">
+                  🐾
+                </div>
+                <div>
+                  <p className="mb-0.5 text-xs font-semibold uppercase tracking-wider text-blue-400">Когнитивная наука</p>
+                  <h3 className="text-xl font-bold text-white">Брайан Хейр</h3>
+                  <p className="text-sm text-white/45">Brian Hare, род. 1976 — американский учёный-эволюционист</p>
+                </div>
+              </div>
+              <div className="mb-4 space-y-3">
+                <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-blue-400/70">Позиция и образование</p>
+                  <p className="text-sm leading-relaxed text-white/65">Профессор эволюционной антропологии Университета Дьюка (США). Основатель и директор Центра когнитивных исследований собак (Duke Canine Cognition Center). PhD — Гарвардский университет, научный руководитель — Ричард Врэнгем.</p>
+                </div>
+                <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-blue-400/70">Главное открытие</p>
+                  <p className="text-sm leading-relaxed text-white/65">В 2002 году Хейр показал, что собаки уникально хорошо понимают жесты и взгляды человека — лучше даже, чем шимпанзе. Это способность, которую он назвал «совместным вниманием», возникла в ходе одомашнивания: люди неосознанно отбирали собак, которые лучше считывают их намерения.</p>
+                </div>
+                <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-blue-400/70">Ключевые труды</p>
+                  <p className="text-sm leading-relaxed text-white/65">«Гений собак» (The Genius of Dogs, 2013, совм. с Вуди Чейзом) — мировой бестселлер о когнитивных способностях собак. Более 100 рецензируемых статей в Nature, Science, Current Biology. Создатель онлайн-платформы Dognition для тестирования интеллекта домашних собак.</p>
+                </div>
+              </div>
+              <p className="text-xs leading-relaxed text-white/40">Хейр развивает идею о том, что разные породы отличаются не «уровнем ума», а специализацией когнитивных навыков — каждая порода «умна» по-своему.</p>
+            </div>
+
+            {/* Адам Миклоши */}
+            <div className="rounded-2xl border border-purple-400/20 bg-purple-400/5 p-8">
+              <div className="mb-6 flex items-start gap-4">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-purple-400/30 bg-purple-400/10 text-3xl">
+                  🔬
+                </div>
+                <div>
+                  <p className="mb-0.5 text-xs font-semibold uppercase tracking-wider text-purple-400">Этология и поведение</p>
+                  <h3 className="text-xl font-bold text-white">Адам Миклоши</h3>
+                  <p className="text-sm text-white/45">Ádám Miklósi, род. 1961 — венгерский этолог и биолог</p>
+                </div>
+              </div>
+              <div className="mb-4 space-y-3">
+                <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-purple-400/70">Позиция и образование</p>
+                  <p className="text-sm leading-relaxed text-white/65">Профессор этологии Будапештского университета (ELTE), руководитель Семейной группы исследования собак (Family Dog Research Group) — одной из крупнейших в мире лабораторий по изучению поведения собак. Автор более 200 научных публикаций.</p>
+                </div>
+                <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-purple-400/70">Вклад в науку</p>
+                  <p className="text-sm leading-relaxed text-white/65">Миклоши изучал социальную коммуникацию между собаками и людьми, сравнивал поведение волков и домашних собак в одинаковых условиях. Его исследования доказали, что собаки эволюционно «настроены» на взаимодействие с человеком — это не результат обучения, а биологически закреплённая черта.</p>
+                </div>
+                <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-purple-400/70">Ключевые труды</p>
+                  <p className="text-sm leading-relaxed text-white/65">«Собака: эволюция, поведение и когнитивные способности» (Dog Behaviour, Evolution, and Cognition, 2007/2015) — фундаментальный академический учебник по теме. Соавтор открытия того, что собаки реагируют на указательный жест человека — исследование в Science (1998).</p>
+                </div>
+              </div>
+              <p className="text-xs leading-relaxed text-white/40">Группа Миклоши первой показала, что волки, воспитанные людьми, всё равно хуже справляются с социальными задачами, чем домашние собаки — это означает, что разница не в воспитании, а в генетике.</p>
+            </div>
+
+          </div>
+
           <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
               <div className="mb-4 text-4xl">🧬</div>
